@@ -1,3 +1,3 @@
-const analyzer = require('./lib/analyzer');
+const counter = require('./lib/counter');
 
-module.exports = analyzer;
+module.exports = counter;

@@ -10,16 +10,16 @@ yarn add sk22/im-wordcounter.js
 
 ```javascript
 const fs = require('fs');
-const analyzer = require('im-wordcounter');
+const counter = require('im-wordcounter');
 const whatsapp = require('im-wordcounter/middlewares/whatsapp');
 
 const stream = fs.createReadStream('chat.txt');
-const a = analyzer(whatsapp);
+const c = counter(whatsapp);
 
-a.analyze(stream).then(console.log);
+c.count(stream).then(console.log);
 ```
 
-`analyze` returns a Promise that resolves to an array of objects, like this:
+`count` returns a Promise that resolves to an array of objects, like this:
 
 ```javascript
 [ { word: 'foo', count: 2 },
@@ -28,7 +28,7 @@ a.analyze(stream).then(console.log);
 
 ## Options
 
-An Analyzer's `analyze` function takes an options object as its second parameter.
+A counter's `count` function takes an options object as its second parameter.
 
 The `wc` object is what is passed to the `wordcounter` constructor.
 For information about its parameters, see [Word Counter by Fengyuan Chen on GitHub](https://github.com/fengyuanchen/wordcounter)
@@ -36,7 +36,7 @@ For information about its parameters, see [Word Counter by Fengyuan Chen on GitH
 Here's an example on how to alter these options.
 
 ```javascript
-a.analyze(stream, { sorted: true, wc: { ignorecase: true } })
+count(stream, { sorted: true, wc: { ignorecase: true } })
 ```
 
 These are the default values:

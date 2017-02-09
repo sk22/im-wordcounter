@@ -1,10 +1,10 @@
 const fs = require('fs');
-const analyzer = require('.');
+const counter = require('.');
 const whatsapp = require('./middlewares/whatsapp');
 
 const stream = fs.createReadStream('chat.txt');
 
-const a = analyzer(whatsapp);
+const c = counter(whatsapp);
 
-a.analyze(stream, { wordCounterOptions: { ignorecase: true } })
+c.count(stream, { wordCounterOptions: { ignorecase: true } })
   .then(console.log);
